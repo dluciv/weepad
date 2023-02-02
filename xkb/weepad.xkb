@@ -1,41 +1,5 @@
 xkb_keymap {
- xkb_keycodes {
-  <FK13> = 191;
-  <FK14> = 192;
-  <FK15> = 193;
-  <FK16> = 194;
-  <FK17> = 195;
-  <FK18> = 196;
-  <FK19> = 197;
-  <FK20> = 198;
-  <FK21> = 199;
-  <FK22> = 200;
-  <FK23> = 201;
-  <FK24> = 202;
-
-  <COPY> = 141;
-  <OPEN> = 142;
-  <PAST> = 143;
-  <FIND> = 144;
-  <CUT>  = 145;
-  <HELP> = 146;
-
-
-  alias <I191> = <FK13>;	// #define KEY_F13                 183
-  alias <I192> = <FK14>;	// #define KEY_F14                 184
-  alias <I193> = <FK15>;	// #define KEY_F15                 185
-  alias <I194> = <FK16>;	// #define KEY_F16                 186
-  alias <I195> = <FK17>;	// #define KEY_F17                 187
-  alias <I196> = <FK18>;	// #define KEY_F18                 188
-  alias <I197> = <FK19>;	// #define KEY_F19                 189
-  alias <I198> = <FK20>;	// #define KEY_F20                 190
-  alias <I199> = <FK21>;	// #define KEY_F21                 191
-  alias <I200> = <FK22>;	// #define KEY_F22                 192
-  alias <I201> = <FK23>;	// #define KEY_F23                 193
-  alias <I202> = <FK24>;	// #define KEY_F24                 194
-
-  <I592> = 592; // #define KEY_KBD_LAYOUT_NEXT     584
- };
+ xkb_keycodes { include "evdev" };
 
  xkb_symbols  {
   name[Group1] = "WeePad";
@@ -53,16 +17,23 @@ xkb_keymap {
   key <FK23> { [ F23 ] };
   key <FK24> { [ F24 ] };
 
-  key <COPY>   {      [ XF86Copy              ]       };
-  key <OPEN>   {      [ XF86Open              ]       };
-  key <PAST>   {      [ XF86Paste             ]       };
-  key <FIND>   {      [ Find                  ]       };
-  key <CUT>    {      [ XF86Cut               ]       };
-  key <HELP>   {      [ Help                  ]       };
+  key <COPY> { [ XF86Copy  ] };
+  key <OPEN> { [ XF86Open  ] };
+  key <PAST> { [ XF86Paste ] };
+  key <FIND> { [ Find      ] };
+  key <CUT>  { [ XF86Cut   ] };
+  key <HELP> { [ Help      ] };
 
+  key <UNDO> { [ Undo      ] };
+  key <AGAI> { [ Redo      ] };
+
+  key <I159> { [ XF86DOS         ] };
+  key <I160> { [ XF86ScreenSaver ] };
+
+  key <I256> { [ XF86AudioMicMute ] };
+  key <MUTE> { [ XF86AudioMute    ] };
 
   key <I592> { [ ISO_Prev_Group ] };
-
  };
 
  // xkb_geometry { };
