@@ -38,6 +38,8 @@ class WeePad(evdev_mapper.EvdevMappedKeyboard):
                 return e.KEY_MICMUTE
             case (0, e.KEY_KP2):
                 return e.KEY_MUTE
+            case (0, e.KEY_KP3):
+                return e.KEY_FIND
             case (0, e.KEY_KP0):
                 return e.KEY_HELP
 
