@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import asyncio
 from evdev import InputDevice, InputEvent, ecodes as e
 from copy import deepcopy
@@ -95,7 +96,7 @@ class WeePad(evdev_mapper.EvdevMappedKeyboard):
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
 
-    phys_dev_f = "/dev/input/by-id/usb-13ba_0001-event-kbd"
+    phys_dev_f = sys.argv[1]  # e.g. "/dev/input/by-id/usb-13ba_0001-event-kbd"
     phys_dev = InputDevice(phys_dev_f)
 
     virt_dev1 = WeePad(
