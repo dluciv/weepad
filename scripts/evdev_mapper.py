@@ -30,7 +30,7 @@ class EvdevMappedKeyboard(UInput):
     def extra_keys(self) -> list[int]:
         return []
 
-    def map_key(self, k: int) -> int:
+    def map_key(self, k: int) -> int | None:
         raise NotImplementedError("Inherit and override please")
 
     def map_input_event(self, ie: InputEvent) -> InputEvent:

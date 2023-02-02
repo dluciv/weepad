@@ -66,18 +66,18 @@ class WeePad(evdev_mapper.EvdevMappedKeyboard):
             case (_, v):
                 return v
 
-    def map_input_event(self, ie: InputEvent) -> InputEvent:
+    def map_input_event(self, ie: InputEvent) -> InputEvent | None:
         if ie.type != e.EV_KEY:
             return ie
 
-        if ie.value != 0:
-            self.pressed_keys.add(ie.code)
-        else:
-            self.pressed_keys.remove(ie.code)
+        if ie.value == 1:
+            self.keys_pressed += 1
+        elif ie.value == 0:
+            self.keys_pressed -= 1
 
-        if len(self.pressed_keys) == 0:
+        if self.keys_pressed == 0:
             self.cur_case = 0
-        elif {e.KEY_KPDOT} == self.pressed_keys:
+        elif self.keys_pressed == 1 and ie.code == e.KEY_KPDOT:
             self.cur_case = 1
 
         if ie.code == e.KEY_KPDOT:
@@ -89,7 +89,7 @@ class WeePad(evdev_mapper.EvdevMappedKeyboard):
         super().__init__(source_device, *args, **kwargs)
 
         self.cur_case: int = 0
-        self.pressed_keys: set[int] = set()
+        self.keys_pressed: int = 0
 
 
 if __name__ == '__main__':
