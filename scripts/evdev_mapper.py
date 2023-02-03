@@ -33,7 +33,7 @@ class EvdevMappedKeyboard(UInput):
     def map_key(self, k: int) -> int | None:
         raise NotImplementedError("Inherit and override please")
 
-    def map_input_event(self, ie: InputEvent) -> InputEvent:
+    def map_input_event(self, ie: InputEvent) -> InputEvent | None:
         '''Defaults to invocation of map_key, can be ovverriden'''
         if ie.type == e.EV_KEY:
             ie = deepcopy(ie)
