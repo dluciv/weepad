@@ -1,4 +1,4 @@
-Ides:
+Inspired by:
 
 * https://www.reddit.com/r/swaywm/comments/exlcof/comment/fghrxbq/?context=3
 * https://unix.stackexchange.com/a/605086 -> https://github.com/Isti115/dotfiles/tree/master/.config/xkb
